@@ -4,6 +4,7 @@
     <classes>
       <class name="utils.SampleTests"/>
       <class name="utils.FacebookLoginTest"/>
+      <class name="utils.LoginTest"/>
     </classes>
   </test>
 </suite>

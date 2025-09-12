@@ -1,37 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-09-12T12:12:56 IST" name="AutomationSuite" finished-at="2025-09-12T12:13:20 IST" duration-ms="24362">
+  <suite started-at="2025-09-12T20:59:56 IST" name="Default suite" finished-at="2025-09-12T21:00:02 IST" duration-ms="6234">
     <groups>
     </groups>
-    <test started-at="2025-09-12T12:12:56 IST" name="GoogleTests" finished-at="2025-09-12T12:13:20 IST" duration-ms="24362">
-      <class name="utils.GoogleSearchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:utils.GoogleSearchTest@2362f559]" started-at="2025-09-12T12:12:56 IST" name="setUp" finished-at="2025-09-12T12:13:03 IST" duration-ms="7508" status="PASS">
+    <test started-at="2025-09-12T20:59:56 IST" name="Default test" finished-at="2025-09-12T21:00:02 IST" duration-ms="6234">
+      <class name="utils.LoginTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:utils.LoginTest@36ebc363]" started-at="2025-09-12T20:59:56 IST" name="setUp" finished-at="2025-09-12T20:59:58 IST" duration-ms="2035" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="testGoogleSearch()[pri:0, instance:utils.GoogleSearchTest@2362f559]" started-at="2025-09-12T12:13:03 IST" name="testGoogleSearch" finished-at="2025-09-12T12:13:13 IST" duration-ms="9615" status="PASS">
+        <test-method signature="testLoginWithScreenshots()[pri:0, instance:utils.LoginTest@36ebc363]" started-at="2025-09-12T20:59:58 IST" name="testLoginWithScreenshots" finished-at="2025-09-12T21:00:02 IST" duration-ms="3977" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testGoogleSearch -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:utils.GoogleSearchTest@2362f559]" started-at="2025-09-12T12:13:13 IST" name="tearDown" finished-at="2025-09-12T12:13:13 IST" duration-ms="333" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:utils.GoogleSearchTest@2362f559]" started-at="2025-09-12T12:13:13 IST" name="setUp" finished-at="2025-09-12T12:13:15 IST" duration-ms="1549" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method signature="testOpenGoogle()[pri:0, instance:utils.GoogleSearchTest@2362f559]" started-at="2025-09-12T12:13:15 IST" name="testOpenGoogle" finished-at="2025-09-12T12:13:20 IST" duration-ms="4643" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testOpenGoogle -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:utils.GoogleSearchTest@2362f559]" started-at="2025-09-12T12:13:20 IST" name="tearDown" finished-at="2025-09-12T12:13:20 IST" duration-ms="234" status="PASS">
+        </test-method> <!-- testLoginWithScreenshots -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:utils.LoginTest@36ebc363]" started-at="2025-09-12T21:00:02 IST" name="tearDown" finished-at="2025-09-12T21:00:02 IST" duration-ms="183" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- utils.GoogleSearchTest -->
-    </test> <!-- GoogleTests -->
-  </suite> <!-- AutomationSuite -->
+      </class> <!-- utils.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
