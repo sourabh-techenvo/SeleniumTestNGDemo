@@ -1,0 +1,58 @@
+name: Selenium Tests with Reports
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Set up JDK 17
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      # 3️⃣ Install Chrome
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      # 4️⃣ Optional: Setup ChromeDriver automatically
+      - name: Setup ChromeDriver
+        run: |
+          mvn dependency:resolve
+          mvn -B clean install
+
+      # 5️⃣ Run tests
+      - name: Run Selenium TestNG tests
+        run: mvn clean test
+
+      # 6️⃣ Zip reports
+      - name: Zip reports
+        run: |
+          cd target/reports
+          zip -r html-report.zip html
+          zip -r excel-report.zip excel
+          zip -r pdf-report.zip pdfs
+          cd ../../
+
+      # 7️⃣ Upload reports as artifact
+      - name: Upload Test Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            target/reports/html-report.zip
+            target/reports/excel-report.zip
+            target/reports/pdf-report.zip
+            target/surefire-reports
