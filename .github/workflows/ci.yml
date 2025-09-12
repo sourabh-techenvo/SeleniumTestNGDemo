@@ -41,10 +41,14 @@ jobs:
       - name: Zip reports
         run: |
           cd target/reports
+          # HTML folder exists
           zip -r html-report.zip html
-          zip -r excel-report.zip excel
+          # Excel report is a single file report.xlsx
+          zip -r excel-report.zip report.xlsx
+          # PDF folder exists
           zip -r pdf-report.zip pdfs
           cd ../../
+
 
       # 7️⃣ Upload reports as artifact
       - name: Upload Test Reports
