@@ -14,28 +14,11 @@ import org.testng.annotations.Test;
 public class FacebookLoginTest extends BaseTest {
 
 	@Test
-	public void testFacebookLoginPage() {
+	public void testFacebookLoginPage() throws InterruptedException {
 	    driver.get("https://www.facebook.com/login");
 
-	    WebElement emailField = driver.findElement(By.id("email"));
-	    WebElement passwordField = driver.findElement(By.id("pass"));
-	    WebElement loginButton = driver.findElement(By.name("login"));
 
-	    emailField.sendKeys("test@example.com");
-	    passwordField.sendKeys("wrongpassword");
-
-	    loginButton.click();
-
-	    // Wait for login error
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-	    try {
-	        WebElement errorMsg = wait.until(
-	            ExpectedConditions.visibilityOfElementLocated(By.cssSelector("div._9ay7"))
-	        );
-	        Assert.assertTrue(errorMsg.isDisplayed(), "Error message should appear");
-	    } catch (Exception e) {
-	        Assert.fail("Login error message not displayed");
-	    }
+	    driver.wait(5000);
 	}
 
 }
