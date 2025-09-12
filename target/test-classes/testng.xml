@@ -3,6 +3,7 @@
   <test name="GoogleTests">
     <classes>
       <class name="utils.GoogleSearchTest"/>
+      <class name="utils.FacebookLoginTest"/>
     </classes>
   </test>
 </suite>

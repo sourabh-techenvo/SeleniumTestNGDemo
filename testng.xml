@@ -3,6 +3,7 @@
   <test name="DemoTests">
     <classes>
       <class name="utils.SampleTests"/>
+      <class name="utils.FacebookLoginTest"/>
     </classes>
   </test>
 </suite>
