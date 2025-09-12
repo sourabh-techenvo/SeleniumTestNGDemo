@@ -14,11 +14,11 @@ import org.testng.annotations.Test;
 public class FacebookLoginTest extends BaseTest {
 
 	@Test
-	public void testFacebookLoginPage() throws InterruptedException {
+	public void testFacebookLoginPage()  {
 	    driver.get("https://www.facebook.com/login");
-
-
-	    driver.wait(5000);
+	    Assert.assertTrue(driver.getTitle().contains("Google"), "Page title should contain 'Google'");
 	}
+	
+
 
 }
