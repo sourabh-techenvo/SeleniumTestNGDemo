@@ -16,7 +16,7 @@ public class FacebookLoginTest extends BaseTest {
 	@Test
 	public void testFacebookLoginPage()  {
 	    driver.get("https://www.facebook.com/login");
-	    Assert.assertTrue(driver.getTitle().contains("Google"), "Page title should contain 'Google'");
+	    Assert.assertTrue(driver.getTitle().contains("Facebook"), "Page title should contain 'Facebook'");
 	}
 	
 
