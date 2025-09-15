@@ -156,7 +156,7 @@ public class TS_0001_SFEC_LEGALENTITY_CREATE extends BaseTest {
             logger.logStep("Clicked Save Button");
 
             // test.pass("Test Case Passed");
-
+            logger.generatePdfReport();
 
             // ScreenshotReporter.flushScreenshotsForClass("TS_0001_SFEC_LEGALENTITY_CREATE");
 
