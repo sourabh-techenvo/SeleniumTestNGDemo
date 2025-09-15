@@ -29,11 +29,25 @@ public class BaseTest {
     public void setUp() throws Exception {
         ChromeOptions options = new ChromeOptions();
 
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        // FIX: set unique user-data-dir
+        String uniqueProfile = "/tmp/chrome-profile-" + System.currentTimeMillis();
+        options.addArguments("--user-data-dir=" + uniqueProfile);
+
+        WebDriver driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
+
+
         // Headless for CI
         // options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         // options.addArguments("start-maximized");
+
+
 
         // ✅ Use a unique temporary user-data-dir to avoid session conflicts
         Path tempDir = Files.createTempDirectory("chrome-user-data");
