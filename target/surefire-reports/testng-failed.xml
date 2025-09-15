@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [AutomationSuite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="GoogleTests(failed)" verbose="0">
+    <classes>
+      <class name="testSFEC.TS_0001_SFEC_LEGALENTITY_CREATE">
+        <methods>
+          <include name="LegalEntity_CREATE"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="LaunchApplication"/>
+          <include name="CloseApplication"/>
+        </methods>
+      </class> <!-- testSFEC.TS_0001_SFEC_LEGALENTITY_CREATE -->
+    </classes>
+  </test> <!-- GoogleTests(failed) -->
+</suite> <!-- Failed suite [AutomationSuite] -->

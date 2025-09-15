@@ -17,9 +17,9 @@ import java.util.List;
  */
 public class ActionLogger {
 
-    private final WebDriver driver;
-    private final Path outputDir;
-    private final List<Step> steps = new ArrayList<>();
+    public final WebDriver driver;
+    public final Path outputDir;
+    public final List<Step> steps = new ArrayList<>();
 
     public ActionLogger(WebDriver driver, Path outputDir) throws Exception {
         this.driver = driver;

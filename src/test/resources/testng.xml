@@ -5,6 +5,7 @@
       <class name="utils.GoogleSearchTest"/>
       <class name="utils.FacebookLoginTest"/>
       <class name="utils.LoginTest"/>
+      <class name="testSFEC.TS_0001_SFEC_LEGALENTITY_CREATE"/>
     </classes>
   </test>
 </suite>
