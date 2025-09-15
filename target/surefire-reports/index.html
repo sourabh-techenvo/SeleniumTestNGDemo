@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-AutomationSuite" class="navigator-link ">
-                    <span>D:\new pdf and excel report generation code\SeleniumTestNGDemo\src\test\resources\testng.xml</span>
+                    <span>D:\new pdf and excel report generation code\WORKING CODE\SeleniumTestNGDemo\src\test\resources\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +103,12 @@
                     <div class="method-list-content passed suite-AutomationSuite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-AutomationSuite" title="utils.GoogleSearchTest" class="method navigator-link" hash-for-method="testGoogleSearch">testGoogleSearch</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-AutomationSuite" title="utils.FacebookLoginTest" class="method navigator-link" hash-for-method="testFacebookLoginPage">testFacebookLoginPage</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-AutomationSuite" title="utils.LoginTest" class="method navigator-link" hash-for-method="testLoginWithScreenshots">testLoginWithScreenshots</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -126,16 +131,39 @@
           <div class="suite-AutomationSuite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">utils.GoogleSearchTest</span>
+              <span class="class-name">utils.LoginTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testGoogleSearch">
-                  </a> <!-- testGoogleSearch -->
-                  <span class="method-name">testGoogleSearch</span>
+                  <a name="testLoginWithScreenshots">
+                  </a> <!-- testLoginWithScreenshots -->
+                  <span class="method-name">testLoginWithScreenshots</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-AutomationSuite-class-passed -->
+          <div class="suite-AutomationSuite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">utils.FacebookLoginTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFacebookLoginPage">
+                  </a> <!-- testFacebookLoginPage -->
+                  <span class="method-name">testFacebookLoginPage</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-AutomationSuite-class-passed -->
+          <div class="suite-AutomationSuite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">utils.GoogleSearchTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="testOpenGoogle">
@@ -148,7 +176,7 @@
         </div> <!-- panel AutomationSuite -->
         <div panel-name="test-xml-AutomationSuite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">D:\new pdf and excel report generation code\SeleniumTestNGDemo\src\test\resources\testng.xml</span>
+            <span class="header-content">D:\new pdf and excel report generation code\WORKING CODE\SeleniumTestNGDemo\src\test\resources\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -158,6 +186,8 @@
   &lt;test thread-count=&quot;5&quot; name=&quot;GoogleTests&quot; verbose=&quot;0&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;utils.GoogleSearchTest&quot;/&gt;
+      &lt;class name=&quot;utils.FacebookLoginTest&quot;/&gt;
+      &lt;class name=&quot;utils.LoginTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- GoogleTests --&gt;
 &lt;/suite&gt; &lt;!-- AutomationSuite --&gt;
@@ -171,7 +201,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">GoogleTests (1 class)</span>
+                <span class="test-name">GoogleTests (3 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -197,20 +227,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testGoogleSearch')
-data.setCell(0, 2, 'utils.GoogleSearchTest')
-data.setCell(0, 3, 5958);
+data.setCell(0, 1, 'testLoginWithScreenshots')
+data.setCell(0, 2, 'utils.LoginTest')
+data.setCell(0, 3, 7791);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testOpenGoogle')
 data.setCell(1, 2, 'utils.GoogleSearchTest')
-data.setCell(1, 3, 3391);
+data.setCell(1, 3, 5121);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testFacebookLoginPage')
+data.setCell(2, 2, 'utils.FacebookLoginTest')
+data.setCell(2, 3, 1536);
 window.suiteTableData['AutomationSuite']= { tableData: data, tableDiv: 'times-div-AutomationSuite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 9 seconds</span>
+              <span class="suite-total-time">Total running time: 14 seconds</span>
               <div id="times-div-AutomationSuite">
               </div> <!-- times-div-AutomationSuite -->
             </div> <!-- times-div -->
@@ -242,24 +276,42 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testGoogleSearch</span>
-                <span class="method-start">2172 ms</span>
+                <span class="method-name">testOpenGoogle</span>
+                <span class="method-start">9932 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">8323 ms</span>
+                <span class="method-start">15179 ms</span>
               </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">utils.FacebookLoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">8592 ms</span>
+                <span class="method-start">15556 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testOpenGoogle</span>
-                <span class="method-start">10135 ms</span>
+                <span class="method-name">testFacebookLoginPage</span>
+                <span class="method-start">16861 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">13747 ms</span>
+                <span class="method-start">18472 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">utils.LoginTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">18677 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testLoginWithScreenshots</span>
+                <span class="method-start">20019 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">27892 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

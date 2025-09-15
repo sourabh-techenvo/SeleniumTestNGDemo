@@ -2,9 +2,17 @@ package utils;
 
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
-import com.lowagie.text.*;
-import com.lowagie.text.pdf.PdfWriter;
 import org.testng.ITestResult;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
 
 import java.awt.*;
 import java.io.File;
@@ -30,14 +38,14 @@ public class PdfReportGenerator {
                 document.open();
 
                 // Title
-                com.lowagie.text.Font titleFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 16, Color.BLUE);
+              Font titleFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 16);
                 Paragraph title = new Paragraph("Test Case: " + testName, titleFont);
                 title.setAlignment(Element.ALIGN_CENTER);
                 title.setSpacingAfter(20);
                 document.add(title);
 
                 // Status
-                com.lowagie.text.Font statusFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12);
+                Font statusFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12);
                 String status = result.isSuccess() ? "PASSED" : "FAILED";
                 Paragraph statusPara = new Paragraph("Status: " + status, statusFont);
                 statusPara.setSpacingAfter(10);
@@ -46,7 +54,7 @@ public class PdfReportGenerator {
                 // Error (if any)
                 if (result.getThrowable() != null) {
                     Paragraph errorPara = new Paragraph("Error: " + result.getThrowable().getMessage(),
-                            FontFactory.getFont(FontFactory.HELVETICA, 10, Color.RED));
+                            FontFactory.getFont(FontFactory.HELVETICA, 10));
                     errorPara.setSpacingAfter(10);
                     document.add(errorPara);
                 }

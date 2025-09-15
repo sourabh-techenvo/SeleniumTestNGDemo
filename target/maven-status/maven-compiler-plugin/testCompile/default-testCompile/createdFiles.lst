@@ -1,9 +1,13 @@
 utils\TestListener.class
+utils\ActionLogger$Step.class
 utils\ExcelReportGenerator.class
-utils\ReportManager.class
-utils\SampleTests.class
 utils\BaseTest.class
 utils\Utils.class
 GoogleTest.class
-utils\GoogleSearchTest.class
 utils\PdfReportGenerator.class
+utils\FacebookLoginTest.class
+utils\ReportManager.class
+utils\SampleTests.class
+utils\GoogleSearchTest.class
+utils\ActionLogger.class
+utils\LoginTest.class
