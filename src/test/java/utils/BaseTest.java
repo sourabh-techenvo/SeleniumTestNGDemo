@@ -33,7 +33,7 @@ public class BaseTest {
         // options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("start-maximized");
+        // options.addArguments("start-maximized");
 
         // ✅ Use a unique temporary user-data-dir to avoid session conflicts
         Path tempDir = Files.createTempDirectory("chrome-user-data");
