@@ -1,23 +1,22 @@
 package utils;
 
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 import org.testng.ITestResult;
 
-import java.awt.Color;
+import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
 
+/**
+ * Generate PDF reports for each test case with screenshots & step descriptions.
+ */
 public class PdfReportGenerator {
 
-    /**
-     * Generate PDFs for each test result.
-     *
-     * @param results        List of ITestResult from TestListener
-     * @param pdfDir         Folder to save PDFs
-     * @param screenshotsDir Folder where screenshots are stored
-     */
+    @SuppressWarnings("unchecked")
     public static void generatePdfs(List<ITestResult> results, File pdfDir, File screenshotsDir) {
         try {
             if (!pdfDir.exists()) pdfDir.mkdirs();
@@ -26,19 +25,19 @@ public class PdfReportGenerator {
                 String testName = result.getMethod().getMethodName();
                 String pdfFilePath = new File(pdfDir, testName + ".pdf").getAbsolutePath();
 
-                Document document = new Document();
+                Document document = new Document(PageSize.A4);
                 PdfWriter.getInstance(document, new FileOutputStream(pdfFilePath));
                 document.open();
 
                 // Title
-                Font titleFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 16, Color.BLUE);
+                com.lowagie.text.Font titleFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 16, Color.BLUE);
                 Paragraph title = new Paragraph("Test Case: " + testName, titleFont);
                 title.setAlignment(Element.ALIGN_CENTER);
                 title.setSpacingAfter(20);
                 document.add(title);
 
                 // Status
-                Font statusFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12);
+                com.lowagie.text.Font statusFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12);
                 String status = result.isSuccess() ? "PASSED" : "FAILED";
                 Paragraph statusPara = new Paragraph("Status: " + status, statusFont);
                 statusPara.setSpacingAfter(10);
@@ -46,24 +45,48 @@ public class PdfReportGenerator {
 
                 // Error (if any)
                 if (result.getThrowable() != null) {
-                    Paragraph errorPara = new Paragraph("Error: " + result.getThrowable().getMessage());
+                    Paragraph errorPara = new Paragraph("Error: " + result.getThrowable().getMessage(),
+                            FontFactory.getFont(FontFactory.HELVETICA, 10, Color.RED));
                     errorPara.setSpacingAfter(10);
                     document.add(errorPara);
                 }
 
-                // Screenshot
-                Object screenshotAttr = result.getAttribute("screenshot");
-                if (screenshotAttr != null) {
-                    String screenshotPath = screenshotAttr.toString();
-                    try {
-                        Image screenshot = Image.getInstance(screenshotPath);
-                        screenshot.scaleToFit(500, 400);
-                        screenshot.setAlignment(Element.ALIGN_CENTER);
-                        document.add(screenshot);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        Paragraph imgError = new Paragraph("Failed to add screenshot: " + e.getMessage());
-                        document.add(imgError);
+                // 🔹 Prefer multiple step logs if present
+                Object stepsAttr = result.getAttribute("steps");
+                if (stepsAttr != null && stepsAttr instanceof List) {
+                    List<ActionLogger.Step> steps = (List<ActionLogger.Step>) stepsAttr;
+                    for (ActionLogger.Step step : steps) {
+                        Paragraph stepDesc = new Paragraph("Step: " + step.getDescription(),
+                                FontFactory.getFont(FontFactory.HELVETICA, 11));
+                        stepDesc.setSpacingBefore(10);
+                        stepDesc.setSpacingAfter(5);
+                        document.add(stepDesc);
+
+                        if (step.getScreenshotPath() != null) {
+                            try {
+                                Image screenshot = Image.getInstance(step.getScreenshotPath());
+                                screenshot.scaleToFit(500, 350);
+                                screenshot.setAlignment(Element.ALIGN_CENTER);
+                                document.add((Element) screenshot);
+                            } catch (Exception e) {
+                                document.add(new Paragraph("Failed to load step screenshot: " + e.getMessage()));
+                            }
+                        }
+                    }
+                } else {
+                    // 🔹 fallback: single screenshot from TestListener
+                    Object screenshotAttr = result.getAttribute("screenshot");
+                    if (screenshotAttr != null) {
+                        String screenshotPath = screenshotAttr.toString();
+                        try {
+                            Image screenshot = Image.getInstance(screenshotPath);
+                            screenshot.scaleToFit(500, 350);
+                            screenshot.setAlignment(Element.ALIGN_CENTER);
+                            document.add(new Paragraph("Final Screenshot:"));
+                            document.add((Element) screenshot);
+                        } catch (Exception e) {
+                            document.add(new Paragraph("Failed to add screenshot: " + e.getMessage()));
+                        }
                     }
                 }
 

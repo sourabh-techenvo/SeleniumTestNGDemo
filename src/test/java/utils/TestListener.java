@@ -1,6 +1,5 @@
 package utils;
 
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -43,7 +42,6 @@ public class TestListener implements ITestListener {
         takeScreenshot(result);
     }
 
-    // helper method
     private void takeScreenshot(ITestResult result) {
         Object instance = result.getInstance();
         if (instance instanceof BaseTest) {
@@ -63,7 +61,6 @@ public class TestListener implements ITestListener {
         }
     }
 
-
     @Override
     public void onTestSkipped(ITestResult result) {
         results.add(result);
@@ -71,7 +68,6 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onFinish(ITestContext context) {
-        // Generate HTML (ExtentReports), Excel, and PDFs
         try {
             ReportManager.generateHtmlReport(results, htmlDir.toFile(), screenshotsDir.toFile());
             ExcelReportGenerator.generateExcel(results, reportsRoot.resolve("report.xlsx").toFile());
@@ -86,7 +82,6 @@ public class TestListener implements ITestListener {
         }
     }
 
-    // unused / no-op
     @Override public void onTestStart(ITestResult result) {}
     @Override public void onTestFailedButWithinSuccessPercentage(ITestResult result) {}
     @Override public void onTestFailedWithTimeout(ITestResult result) {}
